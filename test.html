@@ -1,4 +1,30 @@
+<!DOCTYPE html>
 <html>
-<a href="trackgpsapp://">Open my app</a>
-</html>
+<head>
+    <title>Переадресация...</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // Получаем параметр url из адресной строки
+            var urlParam = getParameterByName('url');
+            
+            // Перенаправляем на указанную страницу
+            if (urlParam) {
+                window.location.href = urlParam;
+            }
+        };
 
+        // Функция для извлечения значения параметра из URL-адреса
+        function getParameterByName(name) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
+</head>
+<body>
+    <p>Подождите, идет перенаправление...</p>
+</body>
+</html>
