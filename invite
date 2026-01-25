@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forwarding...</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Powerline Guardians" />
+  <meta property="og:description" content="Open link in Powerline Guardians or download the game." />
+  <meta property="og:image" content="https://jurfix.github.io/assets/img/1920.png" />
+  <meta property="og:url" content="https://jurfix.github.io/invite" />
+  <meta property="og:type" content="website" />
+
+  <script type="text/javascript">
+    window.onload = function() {
+      var urlParam = getParameterByName('url');
+      if (urlParam) {
+
+        window.location = urlParam;
+
+        setTimeout(function() {
+          window.location = "https://play.google.com/store/apps/details?id=com.jurfixgame.powerlineguardians";
+        }, 1000);
+      }
+    };
+
+    function getParameterByName(name) {
+      name = name.replace(/[
+
+\[\]
+
+]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(window.location.href);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+  </script>
+</head>
+<body>
+  <p>Forwarding...</p>
+</body>
+</html>
