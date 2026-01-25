@@ -10,33 +10,24 @@
   <meta property="og:url" content="https://jurfix.github.io/powerline-guardians.html" />
   <meta property="og:type" content="website" />
 
-  <script type="text/javascript">
-    window.onload = function() {
-      var urlParam = getParameterByName('invite');
-      if (urlParam) {
-        // правильная ссылка с параметром
-        window.location = "powerlineguardians://?LobbyID=" + urlParam;
+<script type="text/javascript">
+  window.onload = function() {
+    // достаём параметр invite напрямую
+    const params = new URLSearchParams(window.location.search);
+    const invite = params.get("invite");
 
-        // fallback в Google Play
-        setTimeout(function() {
-          window.location = "https://play.google.com/store/apps/details?id=com.jurfixgame.powerlineguardians";
-        }, 1000);
-      }
-    };
+    if (invite) {
+      // правильная ссылка с параметром
+      window.location = "powerlineguardians://?LobbyID=" + invite;
 
-    function getParameterByName(name) {
-      name = name.replace(/[
-
-\[\]
-
-]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-          results = regex.exec(window.location.href);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
+      // fallback в Google Play
+      setTimeout(function() {
+        window.location = "https://play.google.com/store/apps/details?id=com.jurfixgame.powerlineguardians";
+      }, 1000);
     }
-  </script>
+  };
+</script>
+
 </head>
 <body>
   <p>Forwarding...</p>
