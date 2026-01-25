@@ -14,9 +14,10 @@
     window.onload = function() {
       var urlParam = getParameterByName('invite');
       if (urlParam) {
+        // правильная ссылка с параметром
+        window.location = "powerlineguardians://?LobbyID=" + urlParam;
 
-        window.location = "powerlineguardians://?LobbyID"+urlParam;
-
+        // fallback в Google Play
         setTimeout(function() {
           window.location = "https://play.google.com/store/apps/details?id=com.jurfixgame.powerlineguardians";
         }, 1000);
