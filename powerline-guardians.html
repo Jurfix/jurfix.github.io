@@ -7,15 +7,15 @@
   <meta property="og:title" content="Powerline Guardians" />
   <meta property="og:description" content="Open link in Powerline Guardians or download the game." />
   <meta property="og:image" content="https://jurfix.github.io/assets/img/1920.png" />
-  <meta property="og:url" content="https://jurfix.github.io/invite.html" />
+  <meta property="og:url" content="https://jurfix.github.io/powerline-guardians.html" />
   <meta property="og:type" content="website" />
 
   <script type="text/javascript">
     window.onload = function() {
-      var urlParam = getParameterByName('u');
+      var urlParam = getParameterByName('invite');
       if (urlParam) {
 
-        window.location = urlParam;
+        window.location = "powerlineguardians://?LobbyID"+urlParam;
 
         setTimeout(function() {
           window.location = "https://play.google.com/store/apps/details?id=com.jurfixgame.powerlineguardians";
