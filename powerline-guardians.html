@@ -11,21 +11,25 @@
   <meta property="og:type" content="website" />
 
 <script type="text/javascript">
-  window.onload = function() {
-    // достаём параметр invite напрямую
-    const params = new URLSearchParams(window.location.search);
-    const invite = params.get("invite");
+window.onload = function() {
+  const params = new URLSearchParams(window.location.search);
+  const invite = params.get("invite");
 
-    if (invite) {
-      // правильная ссылка с параметром
+  if (invite) {
+    const ua = navigator.userAgent.toLowerCase();
+
+    if (/android/.test(ua)) {
+      // Android → deeplink + fallback в Google Play
       window.location = "powerlineguardians://?LobbyID=" + invite;
-
-      // fallback в Google Play
       setTimeout(function() {
         window.location = "https://play.google.com/store/apps/details?id=com.jurfixgame.powerlineguardians";
       }, 1000);
+    } else {
+      window.location = "https://www.crazygames.com/game/powerline-guardians?czy_invite=true&utm_source=invite&roomId=" + invite;
     }
-  };
+  }
+};
+
 </script>
 
 </head>
